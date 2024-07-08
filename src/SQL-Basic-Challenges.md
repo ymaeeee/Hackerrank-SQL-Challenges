@@ -193,7 +193,8 @@ SELECT DISTINCT city, LENGTH(city) FROM station
 ORDER BY LENGTH(city) DESC, city ASC LIMIT 1;
 ```
 <br>
-**Understanding:** I created separate two queries/; The first one is for listing the city in an ascending order where it will show the shortest city while the second one is for the descending order which will show the longest city name.
+
+**Understanding:** I created separate two queries; The first one is for listing the city in an ascending order where it will show the shortest city name while the second one is for the descending order which will show the longest city name.
 <br>
 
 **Topic:** Weather Observation Station 6<br>
@@ -219,6 +220,9 @@ city LIKE 'o%' OR
 city LIKE 'u%' 
 ORDER BY city ASC; 
 ```
+<br>
+
+**Understanding:** I used the OR logical operator to find the city names that starts with the vowels (a,e,i,o,u).
 <br>
 
 **Topic:** Weather Observation Station 7<br>
@@ -267,6 +271,9 @@ IN ('a', 'e', 'i', 'o', 'u')
 AND RIGHT(city,1) IN ('a', 'e', 'i', 'o', 'u') 
 ORDER BY city ASC; 
 ```
+<br>
+
+**Understanding:** For this one, instead of using the OR logical operator, I shorten it up by using the LEFT and RIGHT functions to check the first and last letter of the city names if it contains vowels by using the IN function. Then I used the AND logical operator to comply with the problem requirement.
 <br>
 
 **Topic:** Weather Observation Station 9<br>
