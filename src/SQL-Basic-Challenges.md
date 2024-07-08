@@ -149,8 +149,7 @@ SELECT city, state FROM station;
 ``` sql
 SELECT DISTINCT city FROM station WHERE id % 2 = 0;
 ```
-<br>
-**Understanding:** I used modulo operator to check if the value for the ID will be even.
+<br>**Understanding:** I used modulo operator to check if the value for the ID will be even.
 <br>
 
 **Topic:** Weather Observation Station 4<br>
