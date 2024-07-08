@@ -19,8 +19,8 @@
 
 **Solution:**
 ``` sql
-SELECT * FROM CITY
-WHERE COUNTRYCODE = 'USA' AND POPULATION >= 100000;
+SELECT * FROM city
+WHERE countrycode = 'USA' AND population >= 100000;
 ```
 <br>
 
@@ -38,8 +38,8 @@ WHERE COUNTRYCODE = 'USA' AND POPULATION >= 100000;
 
 **Solution:**
 ``` sql
-SELECT NAME FROM CITY
-WHERE COUNTRYCODE = 'USA' AND POPULATION >= 120000;
+SELECT NAME FROM city
+WHERE countrycode = 'USA' AND population >= 120000;
 ```
 <br>
 
@@ -57,7 +57,7 @@ WHERE COUNTRYCODE = 'USA' AND POPULATION >= 120000;
 
 **Solution:**
 ``` sql
-SELECT * FROM CITY;
+SELECT * FROM city;
 ```
 <br>
 
@@ -75,7 +75,7 @@ SELECT * FROM CITY;
 
 **Solution:**
 ``` sql
-SELECT * FROM CITY WHERE ID = "1661";
+SELECT * FROM city WHERE id = "1661";
 ```
 <br>
 
@@ -93,7 +93,7 @@ SELECT * FROM CITY WHERE ID = "1661";
 
 **Solution:**
 ``` sql
-SELECT * FROM CITY WHERE COUNTRYCODE = 'JPN';
+SELECT * FROM city WHERE countrycode = 'JPN';
 ```
 <br>
 
@@ -111,7 +111,7 @@ SELECT * FROM CITY WHERE COUNTRYCODE = 'JPN';
 
 **Solution:**
 ``` sql
-SELECT NAME FROM CITY WHERE COUNTRYCODE = 'JPN'
+SELECT NAME FROM city WHERE countrycode = 'JPN'
 ```
 <br>
 
@@ -129,7 +129,7 @@ SELECT NAME FROM CITY WHERE COUNTRYCODE = 'JPN'
 
 **Solution:**
 ``` sql
-SELECT CITY, STATE FROM STATION;
+SELECT city, state FROM station;
 ```
 <br>
 
@@ -147,7 +147,7 @@ SELECT CITY, STATE FROM STATION;
 
 **Solution:**
 ``` sql
-SELECT DISTINCT CITY FROM STATION WHERE ID % 2 = 0;
+SELECT DISTINCT city FROM station WHERE id % 2 = 0;
 ```
 <br>
 
@@ -165,7 +165,7 @@ SELECT DISTINCT CITY FROM STATION WHERE ID % 2 = 0;
 
 **Solution:**
 ``` sql
-SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;
+SELECT COUNT(city) - COUNT(DISTINCT city) FROM station;
 ```
 <br>
 
@@ -183,9 +183,34 @@ SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;
 
 **Solution:**
 ``` sql
-SELECT DISTINCT CITY, LENGTH(CITY) FROM STATION
-ORDER BY LENGTH(CITY) ASC, CITY ASC LIMIT 1;
+SELECT DISTINCT city, LENGTH(city) FROM station
+ORDER BY LENGTH(city) ASC, city ASC LIMIT 1;
 
-SELECT DISTINCT CITY, LENGTH(CITY) FROM STATION
-ORDER BY LENGTH(CITY) DESC, CITY ASC LIMIT 1;
+SELECT DISTINCT city, LENGTH(city) FROM station
+ORDER BY LENGTH(city) DESC, city ASC LIMIT 1;
+```
+<br>
+
+**Topic:** Weather Observation Station 6<br>
+**Problem:** Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+
+**CITY**
+| Field       | Type         |
+|-------------|--------------|
+| ID          | NUMBER       |
+| CITY        | VARCHAR2(21) |
+| STATE       | VARCHAR2(2)  |
+| LAT_N       | NUMBER       |
+| LONG_W      | NUMBER       |
+
+**Solution:**
+``` sql
+SELECT DISTINCT city
+FROM station
+WHERE city LIKE 'a%' OR
+city LIKE 'e%' OR
+city LIKE 'i%' OR
+city LIKE 'o%' OR
+city LIKE 'u%' 
+ORDER BY city ASC; 
 ```
