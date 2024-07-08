@@ -150,6 +150,8 @@ SELECT city, state FROM station;
 SELECT DISTINCT city FROM station WHERE id % 2 = 0;
 ```
 <br>
+**Understanding:** I used modulo operator to check if the value for the ID will be even.
+<br>
 
 **Topic:** Weather Observation Station 4<br>
 **Problem:** Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
@@ -190,6 +192,8 @@ SELECT DISTINCT city, LENGTH(city) FROM station
 ORDER BY LENGTH(city) DESC, city ASC LIMIT 1;
 ```
 <br>
+**Understanding:** I created separate two queries/; The first one is for listing the city in an ascending order where it will show the shortest city while the second one is for the descending order which will show the longest city name.
+<br>
 
 **Topic:** Weather Observation Station 6<br>
 **Problem:** Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
@@ -213,4 +217,94 @@ city LIKE 'i%' OR
 city LIKE 'o%' OR
 city LIKE 'u%' 
 ORDER BY city ASC; 
+```
+<br>
+
+**Topic:** Weather Observation Station 7<br>
+**Problem:** Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+
+**CITY**
+| Field       | Type         |
+|-------------|--------------|
+| ID          | NUMBER       |
+| CITY        | VARCHAR2(21) |
+| STATE       | VARCHAR2(2)  |
+| LAT_N       | NUMBER       |
+| LONG_W      | NUMBER       |
+
+**Solution:**
+``` sql
+SELECT DISTINCT city
+FROM station
+WHERE city LIKE '%a' OR
+city LIKE '%e' OR
+city LIKE '%i' OR
+city LIKE '%o' OR
+city LIKE '%u' 
+ORDER BY city ASC; 
+```
+<br>
+
+**Topic:** Weather Observation Station 8<br>
+**Problem:** Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+
+**CITY**
+| Field       | Type         |
+|-------------|--------------|
+| ID          | NUMBER       |
+| CITY        | VARCHAR2(21) |
+| STATE       | VARCHAR2(2)  |
+| LAT_N       | NUMBER       |
+| LONG_W      | NUMBER       |
+
+**Solution:**
+``` sql
+SELECT DISTINCT city
+FROM station
+WHERE LEFT(city,1)
+IN ('a', 'e', 'i', 'o', 'u')
+AND RIGHT(city,1) IN ('a', 'e', 'i', 'o', 'u') 
+ORDER BY city ASC; 
+```
+<br>
+
+**Topic:** Weather Observation Station 9<br>
+**Problem:** Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
+**CITY**
+| Field       | Type         |
+|-------------|--------------|
+| ID          | NUMBER       |
+| CITY        | VARCHAR2(21) |
+| STATE       | VARCHAR2(2)  |
+| LAT_N       | NUMBER       |
+| LONG_W      | NUMBER       |
+
+**Solution:**
+``` sql
+SELECT DISTINCT city
+FROM station
+WHERE LEFT(city,1) NOT IN ('a', 'e', 'i', 'o', 'u')
+ORDER BY city ASC;
+```
+<br>
+
+**Topic:** Weather Observation Station 10<br>
+**Problem:** Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+
+**CITY**
+| Field       | Type         |
+|-------------|--------------|
+| ID          | NUMBER       |
+| CITY        | VARCHAR2(21) |
+| STATE       | VARCHAR2(2)  |
+| LAT_N       | NUMBER       |
+| LONG_W      | NUMBER       |
+
+**Solution:**
+``` sql
+SELECT DISTINCT city
+FROM station
+WHERE RIGHT(city,1) NOT IN ('a', 'e', 'i', 'o', 'u')
+ORDER BY city ASC;
 ```
