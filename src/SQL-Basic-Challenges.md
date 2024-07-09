@@ -376,7 +376,8 @@ ORDER BY city ASC;
 
 **Solution:**
 ``` sql
-SELECT DISTINCT name
+SELECT name
 FROM students
-WHERE name = ANY AND marks > '75';
+WHERE marks > '75'
+ORDER BY RIGHT(name,3), ID ASC;
 ```
