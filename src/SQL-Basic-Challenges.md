@@ -316,3 +316,67 @@ FROM station
 WHERE RIGHT(city,1) NOT IN ('a', 'e', 'i', 'o', 'u')
 ORDER BY city ASC;
 ```
+<br>
+
+**Topic:** Weather Observation Station 11<br>
+**Problem:** Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+
+**CITY**
+| Field       | Type         |
+|-------------|--------------|
+| ID          | NUMBER       |
+| CITY        | VARCHAR2(21) |
+| STATE       | VARCHAR2(2)  |
+| LAT_N       | NUMBER       |
+| LONG_W      | NUMBER       |
+
+**Solution:**
+``` sql
+SELECT DISTINCT city
+FROM station
+WHERE LEFT(city,1)
+NOT IN ('a', 'e', 'i', 'o', 'u')
+OR RIGHT(city,1) NOT IN ('a', 'e', 'i', 'o', 'u') 
+ORDER BY city ASC; 
+```
+<br>
+
+**Topic:** Weather Observation Station 12<br>
+**Problem:** Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+
+**CITY**
+| Field       | Type         |
+|-------------|--------------|
+| ID          | NUMBER       |
+| CITY        | VARCHAR2(21) |
+| STATE       | VARCHAR2(2)  |
+| LAT_N       | NUMBER       |
+| LONG_W      | NUMBER       |
+
+**Solution:**
+``` sql
+SELECT DISTINCT city
+FROM station
+WHERE LEFT(city,1)
+NOT IN ('a', 'e', 'i', 'o', 'u')
+AND RIGHT(city,1) NOT IN ('a', 'e', 'i', 'o', 'u') 
+ORDER BY city ASC; 
+```
+<br>
+
+**Topic:** Higher Than 75 Marks<br>
+**Problem:** Query the Name of any student in STUDENTS who scored higher than 75 Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+**STUDENTS**
+| Field       | Type         |
+|-------------|--------------|
+| ID          | INTEGER      |
+| NAME        | STRING       |
+| MARKS       | INTEGER      |
+
+**Solution:**
+``` sql
+SELECT DISTINCT name
+FROM students
+WHERE name = ANY AND marks > '75';
+```
