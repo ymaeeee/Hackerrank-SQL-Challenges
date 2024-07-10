@@ -381,3 +381,24 @@ FROM students
 WHERE marks > '75'
 ORDER BY RIGHT(name,3), ID ASC;
 ```
+<br>
+
+**Understanding:** I used the RIGHT function to check the last 3 letters/characters of the name of the students and also sorted them out by using the ASC keyword.<br>
+
+**Topic:** Employee Names<br>
+**Problem:** Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+
+**EMPLOYEE**
+| Column        | Type         |
+|---------------|--------------|
+| employee_id   | Integer      |
+| name          | String       |
+| months        | Integer      |
+| salary        | Integer      |
+
+**Solution:**
+``` sql
+SELECT name
+FROM employee
+ORDER BY name ASC;
+```
